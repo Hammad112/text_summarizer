@@ -8,7 +8,7 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 
-project_name='text Summarizer'
+project_name='text_summarizer'
 list_of_files = [
     ".github/workflows/.gitkeep",
     f"src/{project_name}/__init__.py",
