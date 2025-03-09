@@ -1,0 +1,9 @@
+## Output path is defined here
+artifacts_root: Artifacts/data_ingestion
+
+## Data Ingestion
+data_ingestion:
+  root_dir: Artifacts/data_ingestion
+  source_url: https://github.com/krishnaik06/datasets/raw/refs/heads/main/summarizer-data.zip
+  local_data_file: Artifacts/data_ingestion/data_zip/data.zip
+  unzip_dir: Artifacts/data_ingestion/data_unzip

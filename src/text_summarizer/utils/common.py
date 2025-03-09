@@ -1,5 +1,5 @@
-from os,sys
-from src.text_summarizer.logger import logging
+import os,sys
+from src.text_summarizer.logging import logging
 from box.exceptions import BoxValueError
 import yaml
 ##
