@@ -7,3 +7,9 @@ data_ingestion:
   source_url: https://github.com/krishnaik06/datasets/raw/refs/heads/main/summarizer-data.zip
   local_data_file: Artifacts/data_ingestion/data_zip/data.zip
   unzip_dir: Artifacts/data_ingestion/data_unzip
+
+## Data Transformation
+data_transformation:
+  root_dir: Artifacts/data_transformation
+  data_path: Artifacts/data_ingestion/data_unzip/samsum_dataset
+  tokenizer_name: google/pegasus-cnn_dailymail
