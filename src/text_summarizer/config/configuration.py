@@ -1,7 +1,7 @@
 ## Data Ingestion
 from src.text_summarizer.constants import *
 from src.text_summarizer.utils.common import read_yaml, create_directories
-from src.text_summarizer.entity import DataIngestionConfig
+from src.text_summarizer.entity import DataIngestionConfig,ModelTrainerConfig
 from src.text_summarizer.entity import DataTransformationConfig
 
 class ConfigurationManager:
@@ -36,3 +36,29 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+
+    ## MODEL TRAINER
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:  # <-- Moved outside __init__
+        config = self.config.model_trainer
+        params = self.params.TrainingArguments
+
+        create_directories([config.root_dir])  # Ensure directory exists
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            model_ckpt=config.model_ckpt,
+            num_train_epochs=params.num_train_epochs,
+            warmup_steps=params.warmup_steps,
+            per_device_train_batch_size=params.per_device_train_batch_size,
+            per_device_eval_batch_size=params.per_device_eval_batch_size,
+            weight_decay=params.weight_decay,
+            logging_steps=params.logging_steps,
+            eval_strategy=params.eval_strategy,
+            eval_steps=params.eval_steps,
+            save_steps=params.save_steps,    
+            gradient_accumulation_steps=params.gradient_accumulation_steps
+        )
+
+        return model_trainer_config
